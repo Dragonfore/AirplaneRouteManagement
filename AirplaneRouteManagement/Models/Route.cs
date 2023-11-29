@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AirplaneRouteManagement.Models
+﻿namespace AirplaneRouteManagement.Models
 {
     public class Route
     {
+        public int Id { get; set; }
+        public int NodeId1 { get; set; }
+        public int NodeId2 { get; set; }
     }
 }

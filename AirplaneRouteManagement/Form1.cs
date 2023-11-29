@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirplaneRouteManagement.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace AirplaneRouteManagement
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private readonly ICityService _cityService;
+        private readonly IRouteService _routeService;
+
+        public Form1(ICityService cityService, IRouteService routeService)
         {
             InitializeComponent();
+
+            _cityService = cityService;
+            _routeService = routeService;
         }
     }
 }
