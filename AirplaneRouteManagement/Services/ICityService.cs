@@ -10,5 +10,6 @@ namespace AirplaneRouteManagement.Services
         bool DeleteCity(DeleteCityDto dto);
         IQueryable<City> GetCities();
         IQueryable<City> GetCitiesByKeyword(string keyword);
+        string ExportToReport();
     }
 }

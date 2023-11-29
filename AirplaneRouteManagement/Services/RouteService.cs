@@ -1,10 +1,8 @@
 ﻿using AirplaneRouteManagement.Data;
+using AirplaneRouteManagement.DataTransferObjects;
+using AirplaneRouteManagement.Models;
 using AirplaneRouteManagement.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirplaneRouteManagement.Services
 {
@@ -16,6 +14,24 @@ namespace AirplaneRouteManagement.Services
         {
             _routeRepository = routeRepository;
         }
+        public Route AddEditRoute(AddEditRouteDto dto)
+        {
+            return _routeRepository.AddEditRoute(dto);
+        }
 
+        public bool DeleteRoute(DeleteRouteDto dto)
+        {
+            return _routeRepository.DeleteRoute(dto);
+        }
+
+        public IQueryable<Route> GetRoutes()
+        {
+            return _routeRepository.GetRoutes();
+        }
+
+        public (IQueryable<Route>, IQueryable<Route>) GetRoutesByCityId(int cityId)
+        {
+            return _routeRepository.GetRoutesByCityId(cityId);
+        }
     }
 }

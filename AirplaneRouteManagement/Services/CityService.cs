@@ -31,5 +31,10 @@ namespace AirplaneRouteManagement.Services
         {
             return _cityRepository.GetCitiesByKeyword(keyword);
         }
+
+        public string ExportToReport()
+        {
+            return _cityRepository.ExportToReport();
+        }
     }
 }

@@ -66,9 +66,12 @@ namespace AirplaneRouteManagement.Repositories
         {
             try
             {
+                // Remove City and All Associated Routes
                 var cityToDelete = _routeContext.Cities.Find(dto.CityId);
+                var routesToDelete = _routeContext.Routes.Where(x => x.NodeId1 == cityToDelete.Id || x.NodeId2 == cityToDelete.Id);
 
                 _routeContext.Cities.Remove(cityToDelete);
+                _routeContext.Routes.RemoveRange(routesToDelete);
                 _routeContext.SaveChanges();
 
                 return true;
@@ -87,6 +90,11 @@ namespace AirplaneRouteManagement.Repositories
         public IQueryable<City> GetCitiesByKeyword(string keyword)
         {
             return _routeContext.Cities.Where(x => x.Name.Contains(keyword));
+        }
+
+        public string ExportToReport()
+        {
+            return "";
         }
     }
 }

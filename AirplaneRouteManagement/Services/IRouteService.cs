@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AirplaneRouteManagement.DataTransferObjects;
+using AirplaneRouteManagement.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirplaneRouteManagement.Services
 {
     public interface IRouteService
     {
+        Route AddEditRoute(AddEditRouteDto dto);
+        bool DeleteRoute(DeleteRouteDto dto);
+        IQueryable<Route> GetRoutes();
+        (IQueryable<Route>, IQueryable<Route>) GetRoutesByCityId(int cityId);
     }
 }
