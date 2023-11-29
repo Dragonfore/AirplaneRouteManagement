@@ -23,5 +23,65 @@ namespace AirplaneRouteManagement
             _cityService = cityService;
             _routeService = routeService;
         }
+
+        private void BtnEditCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDeleteCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSaveCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancelAddEditCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExportToFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSearchByName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAddInbound_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDeleteSelectedFlight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CityList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CityLookupList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FlightsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

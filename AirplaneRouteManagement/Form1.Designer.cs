@@ -88,11 +88,12 @@
             this.CityList.Name = "CityList";
             this.CityList.Size = new System.Drawing.Size(120, 290);
             this.CityList.TabIndex = 2;
+            this.CityList.SelectedIndexChanged += new System.EventHandler(this.CityList_SelectedIndexChanged);
             // 
             // CityListLabel
             // 
             this.CityListLabel.AutoSize = true;
-            this.CityListLabel.Location = new System.Drawing.Point(16, 48);
+            this.CityListLabel.Location = new System.Drawing.Point(13, 49);
             this.CityListLabel.Name = "CityListLabel";
             this.CityListLabel.Size = new System.Drawing.Size(63, 13);
             this.CityListLabel.TabIndex = 3;
@@ -122,6 +123,7 @@
             this.BtnSaveCity.TabIndex = 0;
             this.BtnSaveCity.Text = "Save";
             this.BtnSaveCity.UseVisualStyleBackColor = true;
+            this.BtnSaveCity.Click += new System.EventHandler(this.BtnSaveCity_Click);
             // 
             // BtnCancelAddEditCity
             // 
@@ -131,6 +133,7 @@
             this.BtnCancelAddEditCity.TabIndex = 1;
             this.BtnCancelAddEditCity.Text = "Cancel";
             this.BtnCancelAddEditCity.UseVisualStyleBackColor = true;
+            this.BtnCancelAddEditCity.Click += new System.EventHandler(this.BtnCancelAddEditCity_Click);
             // 
             // BtnEditCity
             // 
@@ -140,6 +143,7 @@
             this.BtnEditCity.TabIndex = 5;
             this.BtnEditCity.Text = "Edit City";
             this.BtnEditCity.UseVisualStyleBackColor = true;
+            this.BtnEditCity.Click += new System.EventHandler(this.BtnEditCity_Click);
             // 
             // BtnDeleteCity
             // 
@@ -149,6 +153,7 @@
             this.BtnDeleteCity.TabIndex = 6;
             this.BtnDeleteCity.Text = "Delete City";
             this.BtnDeleteCity.UseVisualStyleBackColor = true;
+            this.BtnDeleteCity.Click += new System.EventHandler(this.BtnDeleteCity_Click);
             // 
             // AddEditCityNameValue
             // 
@@ -225,6 +230,7 @@
             this.FlightsList.Name = "FlightsList";
             this.FlightsList.Size = new System.Drawing.Size(187, 277);
             this.FlightsList.TabIndex = 12;
+            this.FlightsList.SelectedIndexChanged += new System.EventHandler(this.FlightsList_SelectedIndexChanged);
             // 
             // BtnDeleteSelectedFlight
             // 
@@ -234,6 +240,7 @@
             this.BtnDeleteSelectedFlight.TabIndex = 14;
             this.BtnDeleteSelectedFlight.Text = "Delete Selected";
             this.BtnDeleteSelectedFlight.UseVisualStyleBackColor = true;
+            this.BtnDeleteSelectedFlight.Click += new System.EventHandler(this.BtnDeleteSelectedFlight_Click);
             // 
             // CityLookupList
             // 
@@ -242,6 +249,7 @@
             this.CityLookupList.Name = "CityLookupList";
             this.CityLookupList.Size = new System.Drawing.Size(163, 225);
             this.CityLookupList.TabIndex = 15;
+            this.CityLookupList.SelectedIndexChanged += new System.EventHandler(this.CityLookupList_SelectedIndexChanged);
             // 
             // SearchByNameBox
             // 
@@ -279,6 +287,7 @@
             this.BtnSearchByName.TabIndex = 2;
             this.BtnSearchByName.Text = "Search";
             this.BtnSearchByName.UseVisualStyleBackColor = true;
+            this.BtnSearchByName.Click += new System.EventHandler(this.BtnSearchByName_Click);
             // 
             // BtnAddInbound
             // 
@@ -288,6 +297,7 @@
             this.BtnAddInbound.TabIndex = 17;
             this.BtnAddInbound.Text = "Add Inbound Route";
             this.BtnAddInbound.UseVisualStyleBackColor = true;
+            this.BtnAddInbound.Click += new System.EventHandler(this.BtnAddInbound_Click);
             // 
             // button1
             // 
@@ -297,6 +307,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Add Outbound Route";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ExportToFileLabel
             // 
@@ -315,6 +326,7 @@
             this.ExportToFile.TabIndex = 20;
             this.ExportToFile.Text = "Export";
             this.ExportToFile.UseVisualStyleBackColor = true;
+            this.ExportToFile.Click += new System.EventHandler(this.ExportToFile_Click);
             // 
             // groupBox1
             // 
