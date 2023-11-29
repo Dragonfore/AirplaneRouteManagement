@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AirplaneRouteManagement.DataTransferObjects;
+using AirplaneRouteManagement.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AirplaneRouteManagement.Repositories
 {
     public interface ICityRepository
     {
+        City AddEditCity(AddEditCityDto dto);
+        bool DeleteCity(DeleteCityDto dto);
+        IQueryable<City> GetCities();
+        IQueryable<City> GetCitiesByKeyword(string keyword);
     }
 }

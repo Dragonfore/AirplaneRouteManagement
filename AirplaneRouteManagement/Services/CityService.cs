@@ -1,4 +1,7 @@
-﻿using AirplaneRouteManagement.Repositories;
+﻿using AirplaneRouteManagement.DataTransferObjects;
+using AirplaneRouteManagement.Models;
+using AirplaneRouteManagement.Repositories;
+using System.Linq;
 
 namespace AirplaneRouteManagement.Services
 {
@@ -11,5 +14,22 @@ namespace AirplaneRouteManagement.Services
             _cityRepository = cityRepository;
         }
 
+        public City AddEditCity(AddEditCityDto dto)
+        {
+            return _cityRepository.AddEditCity(dto);
+        }
+        
+        public bool DeleteCity(DeleteCityDto dto)
+        {
+            return _cityRepository.DeleteCity(dto);
+        }
+        public IQueryable<City> GetCities()
+        {
+            return _cityRepository.GetCities();
+        }
+        public IQueryable<City> GetCitiesByKeyword(string keyword)
+        {
+            return _cityRepository.GetCitiesByKeyword(keyword);
+        }
     }
 }

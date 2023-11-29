@@ -1,11 +1,8 @@
 ﻿using AirplaneRouteManagement.Data;
 using AirplaneRouteManagement.Repositories;
 using AirplaneRouteManagement.Services;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirplaneRouteManagement
@@ -18,16 +15,27 @@ namespace AirplaneRouteManagement
         [STAThread]
         static void Main()
         {
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var logger = LoggerFactory.Create(builder =>
+            {
+                builder.AddFilter("Microsoft", LogLevel.Warning)
+                       .AddFilter("System", LogLevel.Warning)
+                       .AddFilter("DvdFormApp.Program", LogLevel.Debug)
+                       .AddConsole();
+            });
+
 
             // Linking at this level due to time and avoiding setting up service/api for the time being
             var routeContext = new RouteContext();
             routeContext.Database.EnsureCreated();
-            var cityRepository = new CityRepository(routeContext);
-            var cityService = new CityService(cityRepository);
 
-            var routeRepository = new RouteRepository(routeContext);
+            // Initialize Services and Repositories
+            var cityRepository = new CityRepository(routeContext, logger);
+            var cityService = new CityService(cityRepository);
+            var routeRepository = new RouteRepository(routeContext, logger);
             var routeService = new RouteService(routeRepository);
 
             Application.Run(new Form1(cityService, routeService));
