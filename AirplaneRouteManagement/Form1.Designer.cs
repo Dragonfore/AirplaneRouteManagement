@@ -34,15 +34,15 @@
             this.CityList = new System.Windows.Forms.ListBox();
             this.CityListLabel = new System.Windows.Forms.Label();
             this.AddEditCityBox = new System.Windows.Forms.GroupBox();
-            this.BtnSaveCity = new System.Windows.Forms.Button();
+            this.AddEditCityDescriptionLabel = new System.Windows.Forms.Label();
+            this.AddEditCityNameLabel = new System.Windows.Forms.Label();
+            this.AddEditCityDataValue = new System.Windows.Forms.TextBox();
+            this.AddEditCityDescriptionValue = new System.Windows.Forms.TextBox();
+            this.AddEditCityNameValue = new System.Windows.Forms.TextBox();
             this.BtnCancelAddEditCity = new System.Windows.Forms.Button();
+            this.BtnSaveCity = new System.Windows.Forms.Button();
             this.BtnEditCity = new System.Windows.Forms.Button();
             this.BtnDeleteCity = new System.Windows.Forms.Button();
-            this.AddEditCityNameValue = new System.Windows.Forms.TextBox();
-            this.AddEditCityDescriptionValue = new System.Windows.Forms.TextBox();
-            this.AddEditCityDataValue = new System.Windows.Forms.TextBox();
-            this.AddEditCityNameLabel = new System.Windows.Forms.Label();
-            this.AddEditCityDescriptionLabel = new System.Windows.Forms.Label();
             this.CurrentlySelectedCityLabel = new System.Windows.Forms.Label();
             this.CurrentlySelectedCityValue = new System.Windows.Forms.Label();
             this.OutboundFlightsLabel = new System.Windows.Forms.Label();
@@ -50,11 +50,11 @@
             this.BtnDeleteSelectedFlight = new System.Windows.Forms.Button();
             this.CityLookupList = new System.Windows.Forms.ListBox();
             this.SearchByNameBox = new System.Windows.Forms.GroupBox();
-            this.SearchByNameLabel = new System.Windows.Forms.Label();
-            this.SearchByNameValue = new System.Windows.Forms.TextBox();
             this.BtnSearchByName = new System.Windows.Forms.Button();
+            this.SearchByNameValue = new System.Windows.Forms.TextBox();
+            this.SearchByNameLabel = new System.Windows.Forms.Label();
             this.BtnAddInbound = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnAddOutbound = new System.Windows.Forms.Button();
             this.ExportToFileLabel = new System.Windows.Forms.Label();
             this.ExportToFile = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -115,15 +115,46 @@
             this.AddEditCityBox.TabStop = false;
             this.AddEditCityBox.Text = "Add or Edit City";
             // 
-            // BtnSaveCity
+            // AddEditCityDescriptionLabel
             // 
-            this.BtnSaveCity.Location = new System.Drawing.Point(119, 34);
-            this.BtnSaveCity.Name = "BtnSaveCity";
-            this.BtnSaveCity.Size = new System.Drawing.Size(75, 23);
-            this.BtnSaveCity.TabIndex = 0;
-            this.BtnSaveCity.Text = "Save";
-            this.BtnSaveCity.UseVisualStyleBackColor = true;
-            this.BtnSaveCity.Click += new System.EventHandler(this.BtnSaveCity_Click);
+            this.AddEditCityDescriptionLabel.AutoSize = true;
+            this.AddEditCityDescriptionLabel.Location = new System.Drawing.Point(6, 63);
+            this.AddEditCityDescriptionLabel.Name = "AddEditCityDescriptionLabel";
+            this.AddEditCityDescriptionLabel.Size = new System.Drawing.Size(80, 13);
+            this.AddEditCityDescriptionLabel.TabIndex = 6;
+            this.AddEditCityDescriptionLabel.Text = "City Description";
+            // 
+            // AddEditCityNameLabel
+            // 
+            this.AddEditCityNameLabel.AutoSize = true;
+            this.AddEditCityNameLabel.Location = new System.Drawing.Point(7, 20);
+            this.AddEditCityNameLabel.Name = "AddEditCityNameLabel";
+            this.AddEditCityNameLabel.Size = new System.Drawing.Size(55, 13);
+            this.AddEditCityNameLabel.TabIndex = 5;
+            this.AddEditCityNameLabel.Text = "City Name";
+            // 
+            // AddEditCityDataValue
+            // 
+            this.AddEditCityDataValue.Location = new System.Drawing.Point(119, 126);
+            this.AddEditCityDataValue.Name = "AddEditCityDataValue";
+            this.AddEditCityDataValue.Size = new System.Drawing.Size(75, 20);
+            this.AddEditCityDataValue.TabIndex = 4;
+            this.AddEditCityDataValue.Visible = false;
+            // 
+            // AddEditCityDescriptionValue
+            // 
+            this.AddEditCityDescriptionValue.Location = new System.Drawing.Point(6, 81);
+            this.AddEditCityDescriptionValue.Multiline = true;
+            this.AddEditCityDescriptionValue.Name = "AddEditCityDescriptionValue";
+            this.AddEditCityDescriptionValue.Size = new System.Drawing.Size(100, 65);
+            this.AddEditCityDescriptionValue.TabIndex = 3;
+            // 
+            // AddEditCityNameValue
+            // 
+            this.AddEditCityNameValue.Location = new System.Drawing.Point(6, 36);
+            this.AddEditCityNameValue.Name = "AddEditCityNameValue";
+            this.AddEditCityNameValue.Size = new System.Drawing.Size(100, 20);
+            this.AddEditCityNameValue.TabIndex = 2;
             // 
             // BtnCancelAddEditCity
             // 
@@ -134,6 +165,16 @@
             this.BtnCancelAddEditCity.Text = "Cancel";
             this.BtnCancelAddEditCity.UseVisualStyleBackColor = true;
             this.BtnCancelAddEditCity.Click += new System.EventHandler(this.BtnCancelAddEditCity_Click);
+            // 
+            // BtnSaveCity
+            // 
+            this.BtnSaveCity.Location = new System.Drawing.Point(119, 34);
+            this.BtnSaveCity.Name = "BtnSaveCity";
+            this.BtnSaveCity.Size = new System.Drawing.Size(75, 23);
+            this.BtnSaveCity.TabIndex = 0;
+            this.BtnSaveCity.Text = "Save";
+            this.BtnSaveCity.UseVisualStyleBackColor = true;
+            this.BtnSaveCity.Click += new System.EventHandler(this.BtnSaveCity_Click);
             // 
             // BtnEditCity
             // 
@@ -154,47 +195,6 @@
             this.BtnDeleteCity.Text = "Delete City";
             this.BtnDeleteCity.UseVisualStyleBackColor = true;
             this.BtnDeleteCity.Click += new System.EventHandler(this.BtnDeleteCity_Click);
-            // 
-            // AddEditCityNameValue
-            // 
-            this.AddEditCityNameValue.Location = new System.Drawing.Point(6, 36);
-            this.AddEditCityNameValue.Name = "AddEditCityNameValue";
-            this.AddEditCityNameValue.Size = new System.Drawing.Size(100, 20);
-            this.AddEditCityNameValue.TabIndex = 2;
-            // 
-            // AddEditCityDescriptionValue
-            // 
-            this.AddEditCityDescriptionValue.Location = new System.Drawing.Point(6, 81);
-            this.AddEditCityDescriptionValue.Multiline = true;
-            this.AddEditCityDescriptionValue.Name = "AddEditCityDescriptionValue";
-            this.AddEditCityDescriptionValue.Size = new System.Drawing.Size(100, 65);
-            this.AddEditCityDescriptionValue.TabIndex = 3;
-            // 
-            // AddEditCityDataValue
-            // 
-            this.AddEditCityDataValue.Location = new System.Drawing.Point(119, 126);
-            this.AddEditCityDataValue.Name = "AddEditCityDataValue";
-            this.AddEditCityDataValue.Size = new System.Drawing.Size(75, 20);
-            this.AddEditCityDataValue.TabIndex = 4;
-            this.AddEditCityDataValue.Visible = false;
-            // 
-            // AddEditCityNameLabel
-            // 
-            this.AddEditCityNameLabel.AutoSize = true;
-            this.AddEditCityNameLabel.Location = new System.Drawing.Point(7, 20);
-            this.AddEditCityNameLabel.Name = "AddEditCityNameLabel";
-            this.AddEditCityNameLabel.Size = new System.Drawing.Size(55, 13);
-            this.AddEditCityNameLabel.TabIndex = 5;
-            this.AddEditCityNameLabel.Text = "City Name";
-            // 
-            // AddEditCityDescriptionLabel
-            // 
-            this.AddEditCityDescriptionLabel.AutoSize = true;
-            this.AddEditCityDescriptionLabel.Location = new System.Drawing.Point(6, 63);
-            this.AddEditCityDescriptionLabel.Name = "AddEditCityDescriptionLabel";
-            this.AddEditCityDescriptionLabel.Size = new System.Drawing.Size(80, 13);
-            this.AddEditCityDescriptionLabel.TabIndex = 6;
-            this.AddEditCityDescriptionLabel.Text = "City Description";
             // 
             // CurrentlySelectedCityLabel
             // 
@@ -230,7 +230,6 @@
             this.FlightsList.Name = "FlightsList";
             this.FlightsList.Size = new System.Drawing.Size(187, 277);
             this.FlightsList.TabIndex = 12;
-            this.FlightsList.SelectedIndexChanged += new System.EventHandler(this.FlightsList_SelectedIndexChanged);
             // 
             // BtnDeleteSelectedFlight
             // 
@@ -249,7 +248,6 @@
             this.CityLookupList.Name = "CityLookupList";
             this.CityLookupList.Size = new System.Drawing.Size(163, 225);
             this.CityLookupList.TabIndex = 15;
-            this.CityLookupList.SelectedIndexChanged += new System.EventHandler(this.CityLookupList_SelectedIndexChanged);
             // 
             // SearchByNameBox
             // 
@@ -263,22 +261,6 @@
             this.SearchByNameBox.TabStop = false;
             this.SearchByNameBox.Text = "Search by Name";
             // 
-            // SearchByNameLabel
-            // 
-            this.SearchByNameLabel.AutoSize = true;
-            this.SearchByNameLabel.Location = new System.Drawing.Point(37, 20);
-            this.SearchByNameLabel.Name = "SearchByNameLabel";
-            this.SearchByNameLabel.Size = new System.Drawing.Size(83, 13);
-            this.SearchByNameLabel.TabIndex = 0;
-            this.SearchByNameLabel.Text = "Enter City Name";
-            // 
-            // SearchByNameValue
-            // 
-            this.SearchByNameValue.Location = new System.Drawing.Point(10, 36);
-            this.SearchByNameValue.Name = "SearchByNameValue";
-            this.SearchByNameValue.Size = new System.Drawing.Size(143, 20);
-            this.SearchByNameValue.TabIndex = 1;
-            // 
             // BtnSearchByName
             // 
             this.BtnSearchByName.Location = new System.Drawing.Point(45, 71);
@@ -288,6 +270,22 @@
             this.BtnSearchByName.Text = "Search";
             this.BtnSearchByName.UseVisualStyleBackColor = true;
             this.BtnSearchByName.Click += new System.EventHandler(this.BtnSearchByName_Click);
+            // 
+            // SearchByNameValue
+            // 
+            this.SearchByNameValue.Location = new System.Drawing.Point(10, 36);
+            this.SearchByNameValue.Name = "SearchByNameValue";
+            this.SearchByNameValue.Size = new System.Drawing.Size(143, 20);
+            this.SearchByNameValue.TabIndex = 1;
+            // 
+            // SearchByNameLabel
+            // 
+            this.SearchByNameLabel.AutoSize = true;
+            this.SearchByNameLabel.Location = new System.Drawing.Point(37, 20);
+            this.SearchByNameLabel.Name = "SearchByNameLabel";
+            this.SearchByNameLabel.Size = new System.Drawing.Size(83, 13);
+            this.SearchByNameLabel.TabIndex = 0;
+            this.SearchByNameLabel.Text = "Enter City Name";
             // 
             // BtnAddInbound
             // 
@@ -299,15 +297,15 @@
             this.BtnAddInbound.UseVisualStyleBackColor = true;
             this.BtnAddInbound.Click += new System.EventHandler(this.BtnAddInbound_Click);
             // 
-            // button1
+            // BtnAddOutbound
             // 
-            this.button1.Location = new System.Drawing.Point(589, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 64);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Add Outbound Route";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnAddOutbound.Location = new System.Drawing.Point(589, 240);
+            this.BtnAddOutbound.Name = "BtnAddOutbound";
+            this.BtnAddOutbound.Size = new System.Drawing.Size(63, 64);
+            this.BtnAddOutbound.TabIndex = 18;
+            this.BtnAddOutbound.Text = "Add Outbound Route";
+            this.BtnAddOutbound.UseVisualStyleBackColor = true;
+            this.BtnAddOutbound.Click += new System.EventHandler(this.BtnAddOutbound_Click);
             // 
             // ExportToFileLabel
             // 
@@ -345,7 +343,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 427);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnAddOutbound);
             this.Controls.Add(this.BtnAddInbound);
             this.Controls.Add(this.SearchByNameBox);
             this.Controls.Add(this.CityLookupList);
@@ -402,7 +400,7 @@
         private System.Windows.Forms.TextBox SearchByNameValue;
         private System.Windows.Forms.Label SearchByNameLabel;
         private System.Windows.Forms.Button BtnAddInbound;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnAddOutbound;
         private System.Windows.Forms.Label ExportToFileLabel;
         private System.Windows.Forms.Button ExportToFile;
         private System.Windows.Forms.GroupBox groupBox1;

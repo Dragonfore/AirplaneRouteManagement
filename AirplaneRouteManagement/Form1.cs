@@ -1,4 +1,5 @@
-﻿using AirplaneRouteManagement.Services;
+﻿using AirplaneRouteManagement.Models;
+using AirplaneRouteManagement.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,7 +60,7 @@ namespace AirplaneRouteManagement
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnAddOutbound_Click(object sender, EventArgs e)
         {
 
         }
@@ -71,17 +72,28 @@ namespace AirplaneRouteManagement
 
         private void CityList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var currentSelection = CityList.SelectedItem as City;
+            if (currentSelection is null)
+            {
+                return;
+            }
 
-        }
+            // Clear Existing
+            FlightsList.Items.Clear();
+            CityLookupList.Items.Clear();
 
-        private void CityLookupList_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            // Set Currently Selected City
+            CurrentlySelectedCityValue.Text = currentSelection.Name;
 
-        }
+            // Set Flight list
+            (var inboundFlights, var outboundFlights) = _routeService.GetRoutesByCityId(currentSelection.Id);
+            FlightsList.Items.AddRange(inboundFlights.ToArray());
+            FlightsList.Items.AddRange(outboundFlights.ToArray());
 
-        private void FlightsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            // Set City Lookup
+            // TODO Set to exclude current city
+            var cityLookupItems = _cityService.GetCities();
+            CityLookupList.Items.AddRange(cityLookupItems.ToArray());
         }
     }
 }
