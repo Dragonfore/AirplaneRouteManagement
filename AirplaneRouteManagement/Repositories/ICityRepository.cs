@@ -11,5 +11,6 @@ namespace AirplaneRouteManagement.Repositories
         IQueryable<City> GetCities();
         IQueryable<City> GetCitiesByKeyword(string keyword);
         string ExportToReport();
+        IQueryable<FlightListDto> GetFlightListDtoFromCityList(IQueryable<Route> routes, string direction);
     }
 }

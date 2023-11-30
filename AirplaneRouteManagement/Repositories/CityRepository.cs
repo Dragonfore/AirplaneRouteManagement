@@ -38,7 +38,7 @@ namespace AirplaneRouteManagement.Repositories
 
                     return result.Entity;
                 }
-                else if (dto.Operation != AppConstants.EditCityType)
+                else if (dto.Operation == AppConstants.EditCityType)
                 {
                     // Use of find over where/FirstOrDefault for Performance improvements
                     var city = _routeContext.Cities.Find(dto.CityId);
@@ -95,6 +95,29 @@ namespace AirplaneRouteManagement.Repositories
         public string ExportToReport()
         {
             return "";
+        }
+
+        public IQueryable<FlightListDto> GetFlightListDtoFromCityList(IQueryable<Route> routes, string direction)
+        {
+            var routeList = routes.ToList();
+
+            var routeDtos = new List<FlightListDto>();
+
+            foreach(var route in routeList)
+            {
+                // TODO Implement caching of City name
+                routeDtos.Add(new FlightListDto
+                {
+                    CityId1 = route.NodeId1,
+                    CityId2 = route.NodeId2,
+                    CityName1 = _routeContext.Cities.Find(route.NodeId1)?.Name,
+                    CityName2 = _routeContext.Cities.Find(route.NodeId2)?.Name,
+                    RouteId = route.Id,
+                    Direction = direction,
+                });
+            }
+
+            return routeDtos.AsQueryable();
         }
     }
 }

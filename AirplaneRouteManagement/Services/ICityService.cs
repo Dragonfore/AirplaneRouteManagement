@@ -12,5 +12,6 @@ namespace AirplaneRouteManagement.Services
         IQueryable<City> GetCitiesByKeyword(string keyword, int activeCityId);
         IQueryable<City> GetCitiesExceptActive(int activeCityId);
         string ExportToReport();
+        IQueryable<FlightListDto> GetFlightListDtoFromCityList(IQueryable<Route> routes, string direction);
     }
 }

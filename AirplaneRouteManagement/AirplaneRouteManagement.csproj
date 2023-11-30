@@ -176,6 +176,7 @@
     <Compile Include="DataTransferObjects\AddEditRouteDto.cs" />
     <Compile Include="DataTransferObjects\DeleteCityDto.cs" />
     <Compile Include="DataTransferObjects\DeleteRouteDto.cs" />
+    <Compile Include="DataTransferObjects\FlightListDto.cs" />
     <Compile Include="Data\RouteContext.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

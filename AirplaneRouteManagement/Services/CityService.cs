@@ -41,5 +41,10 @@ namespace AirplaneRouteManagement.Services
         {
             return _cityRepository.ExportToReport();
         }
+
+        public IQueryable<FlightListDto> GetFlightListDtoFromCityList(IQueryable<Route> routes, string direction)
+        {
+            return _cityRepository.GetFlightListDtoFromCityList(routes, direction);
+        }
     }
 }

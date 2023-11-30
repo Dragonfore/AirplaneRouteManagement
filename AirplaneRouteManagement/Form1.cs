@@ -1,4 +1,5 @@
 ﻿using AirplaneRouteManagement.Constants;
+using AirplaneRouteManagement.DataTransferObjects;
 using AirplaneRouteManagement.Models;
 using AirplaneRouteManagement.Services;
 using System;
@@ -292,7 +293,7 @@ namespace AirplaneRouteManagement
 
         private void BtnDeleteSelectedFlight_Click(object sender, EventArgs e)
         {
-            var selectedItem = FlightsList.SelectedItem as Route;
+            var selectedItem = FlightsList.SelectedItem as FlightListDto;
 
             if (selectedItem is null)
             {
@@ -301,7 +302,7 @@ namespace AirplaneRouteManagement
 
             var result = _routeService.DeleteRoute(new DataTransferObjects.DeleteRouteDto
             {
-                RouteId = selectedItem.Id,
+                RouteId = selectedItem.RouteId,
                 Operation = AppConstants.DeleteRoute,
             });
 
@@ -332,8 +333,10 @@ namespace AirplaneRouteManagement
 
             // Set Flight list
             (var inboundFlights, var outboundFlights) = _routeService.GetRoutesByCityId(currentSelection.Id);
-            FlightsList.Items.AddRange(inboundFlights.ToArray());
-            FlightsList.Items.AddRange(outboundFlights.ToArray());
+            var inboundData = _cityService.GetFlightListDtoFromCityList(inboundFlights, "Inbound");
+            var outboundData = _cityService.GetFlightListDtoFromCityList(outboundFlights, "Outbound");
+            FlightsList.Items.AddRange(inboundData.ToArray());
+            FlightsList.Items.AddRange(outboundData.ToArray());
 
             // Set City Lookup
             // TODO Set to exclude current city
