@@ -191,7 +191,7 @@ namespace AirplaneRouteManagement
                 return;
             }
 
-            var returnedCities = _cityService.GetCitiesByKeyword(searchValue);
+            var returnedCities = _cityService.GetCitiesByKeyword(searchValue, selectedItem.Id);
             CityLookupList.Items.Clear();
             CityLookupList.Items.AddRange(returnedCities.ToArray());
         }
@@ -297,7 +297,7 @@ namespace AirplaneRouteManagement
 
             // Set City Lookup
             // TODO Set to exclude current city
-            var cityLookupItems = _cityService.GetCities();
+            var cityLookupItems = _cityService.GetCitiesExceptActive(currentSelection.Id);
             CityLookupList.Items.AddRange(cityLookupItems.ToArray());
         }
     }

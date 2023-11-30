@@ -27,9 +27,14 @@ namespace AirplaneRouteManagement.Services
         {
             return _cityRepository.GetCities();
         }
-        public IQueryable<City> GetCitiesByKeyword(string keyword)
+        public IQueryable<City> GetCitiesByKeyword(string keyword, int activeCityId)
         {
-            return _cityRepository.GetCitiesByKeyword(keyword);
+            return _cityRepository.GetCitiesByKeyword(keyword).Where(x => x.Id != activeCityId);
+        }
+
+        public IQueryable<City> GetCitiesExceptActive(int activeCityId)
+        {
+            return _cityRepository.GetCities().Where(x => x.Id != activeCityId);
         }
 
         public string ExportToReport()

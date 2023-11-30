@@ -9,7 +9,8 @@ namespace AirplaneRouteManagement.Services
         City AddEditCity(AddEditCityDto dto);
         bool DeleteCity(DeleteCityDto dto);
         IQueryable<City> GetCities();
-        IQueryable<City> GetCitiesByKeyword(string keyword);
+        IQueryable<City> GetCitiesByKeyword(string keyword, int activeCityId);
+        IQueryable<City> GetCitiesExceptActive(int activeCityId);
         string ExportToReport();
     }
 }
