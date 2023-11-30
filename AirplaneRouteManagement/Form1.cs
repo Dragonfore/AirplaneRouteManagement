@@ -190,10 +190,12 @@ namespace AirplaneRouteManagement
                 saveFileDialog.Filter = "Text Files | *.txt";
                 var cities = _cityService.GetCities().ToList();
                 var routes = _routeService.GetRoutes().ToList();
-                StreamWriter writer = new StreamWriter(saveFileDialog.FileName);
-                if (cities.Any())
+                var returnValue = saveFileDialog.ShowDialog();
+
+                if (returnValue == DialogResult.OK && saveFileDialog.FileName != "")
                 {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    StreamWriter writer = new StreamWriter(saveFileDialog.FileName);
+                    if (cities.Any())
                     {
                         foreach(var city in cities)
                         {
@@ -214,9 +216,9 @@ namespace AirplaneRouteManagement
                             writer.WriteLine();
                         }
                     }
+                    writer.Close();
+
                 }
-                writer.Close();
-                
             }
             catch (Exception ex)
             {
