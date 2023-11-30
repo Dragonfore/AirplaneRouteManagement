@@ -58,6 +58,8 @@
             this.ExportToFileLabel = new System.Windows.Forms.Label();
             this.ExportToFile = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
+            this.DescriptionValue = new System.Windows.Forms.Label();
             this.AddEditCityBox.SuspendLayout();
             this.SearchByNameBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -338,11 +340,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Export Controls";
             // 
+            // DescriptionLabel
+            // 
+            this.DescriptionLabel.AutoSize = true;
+            this.DescriptionLabel.Location = new System.Drawing.Point(183, 172);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(60, 13);
+            this.DescriptionLabel.TabIndex = 22;
+            this.DescriptionLabel.Text = "Description";
+            // 
+            // DescriptionValue
+            // 
+            this.DescriptionValue.AutoSize = true;
+            this.DescriptionValue.Location = new System.Drawing.Point(183, 189);
+            this.DescriptionValue.Name = "DescriptionValue";
+            this.DescriptionValue.Size = new System.Drawing.Size(0, 13);
+            this.DescriptionValue.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 427);
+            this.Controls.Add(this.DescriptionValue);
+            this.Controls.Add(this.DescriptionLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnAddOutbound);
             this.Controls.Add(this.BtnAddInbound);
@@ -405,6 +426,8 @@
         private System.Windows.Forms.Label ExportToFileLabel;
         private System.Windows.Forms.Button ExportToFile;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label DescriptionLabel;
+        private System.Windows.Forms.Label DescriptionValue;
     }
 }
 

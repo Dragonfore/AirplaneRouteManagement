@@ -78,6 +78,7 @@ namespace AirplaneRouteManagement
                 CityLookupList.Items.Clear();
                 FlightsList.Items.Clear();
                 CurrentlySelectedCityValue.Text = "None";
+                DescriptionValue.Text = "";
                 AddEditCityNameValue.Clear();
                 AddEditCityDescriptionValue.Clear();
 
@@ -170,6 +171,7 @@ namespace AirplaneRouteManagement
             CityList.Items.Clear();
             CityLookupList.Items.Clear();
             FlightsList.Items.Clear();
+            DescriptionValue.Text = "";
             SetupData();
         }
 
@@ -347,9 +349,10 @@ namespace AirplaneRouteManagement
             FlightsList.Items.AddRange(outboundData.ToArray());
 
             // Set City Lookup
-            // TODO Set to exclude current city
             var cityLookupItems = _cityService.GetCitiesExceptActive(currentSelection.Id);
             CityLookupList.Items.AddRange(cityLookupItems.ToArray());
+
+            DescriptionValue.Text = currentSelection.Description;
         }
 
         private void CityLookupList_SelectedIndexChanged(object sender, EventArgs e)
