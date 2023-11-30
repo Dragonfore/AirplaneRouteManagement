@@ -248,6 +248,7 @@
             this.CityLookupList.Name = "CityLookupList";
             this.CityLookupList.Size = new System.Drawing.Size(163, 225);
             this.CityLookupList.TabIndex = 15;
+            this.CityLookupList.SelectedIndexChanged += new System.EventHandler(this.CityLookupList_SelectedIndexChanged);
             // 
             // SearchByNameBox
             // 

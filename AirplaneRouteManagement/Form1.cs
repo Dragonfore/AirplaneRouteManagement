@@ -256,7 +256,8 @@ namespace AirplaneRouteManagement
 
             if (result != null)
             {
-                FlightsList.Items.Add(result);
+                FlightsList.Items.Clear();
+                RefreshFlightList();
             }
             else
             {
@@ -283,7 +284,8 @@ namespace AirplaneRouteManagement
 
             if (result != null)
             {
-                FlightsList.Items.Add(result);
+                FlightsList.Items.Clear();
+                RefreshFlightList();
             }
             else
             {
@@ -318,6 +320,12 @@ namespace AirplaneRouteManagement
 
         private void CityList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RefreshFlightList();
+        }
+
+        private void RefreshFlightList()
+        {
+
             var currentSelection = CityList.SelectedItem as City;
             if (currentSelection is null)
             {
@@ -342,6 +350,11 @@ namespace AirplaneRouteManagement
             // TODO Set to exclude current city
             var cityLookupItems = _cityService.GetCitiesExceptActive(currentSelection.Id);
             CityLookupList.Items.AddRange(cityLookupItems.ToArray());
+        }
+
+        private void CityLookupList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
