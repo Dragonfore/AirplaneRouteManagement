@@ -29,6 +29,12 @@ namespace AirplaneRouteManagement.Repositories
                     return null;
                 }
 
+                if (dto.CityId1 == dto.CityId2)
+                {
+                    _logger.LogWarning("Attempting to Add existing city to itself with id {id}", dto.CityId1);
+                    return null;
+                }
+
                 var route = new Route
                 {
                     NodeId1 = dto.CityId1,
