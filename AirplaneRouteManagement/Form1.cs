@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -218,6 +219,7 @@ namespace AirplaneRouteManagement
                     }
                     writer.Close();
 
+                    Process.Start("notepad.exe", saveFileDialog.FileName);
                 }
             }
             catch (Exception ex)
