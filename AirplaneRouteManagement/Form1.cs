@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -179,6 +180,45 @@ namespace AirplaneRouteManagement
         private void ExportToFile_Click(object sender, EventArgs e)
         {
             // TODO Finish this with export to file
+            try
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.FileName = "Response.txt";
+                saveFileDialog.Filter = "Text Files | *.txt";
+                var cities = _cityService.GetCities().ToList();
+                var routes = _routeService.GetRoutes().ToList();
+                StreamWriter writer = new StreamWriter(saveFileDialog.FileName);
+                if (cities.Any())
+                {
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        foreach(var city in cities)
+                        {
+                            writer.WriteLine(city.Name + " - " + city.Description);
+                            writer.WriteLine("Inbound");
+                            foreach(var route in routes.Where(x => x.NodeId1 == city.Id))
+                            {
+                                var city2 = cities.First(x => x.Id == route.NodeId2);
+                                writer.WriteLine(city2.Name + " - " + city2.Description);
+                            }
+
+                            writer.WriteLine("Outbound");
+                            foreach (var route in routes.Where(x => x.NodeId2 == city.Id))
+                            {
+                                var city2 = cities.First(x => x.Id == route.NodeId1);
+                                writer.WriteLine(city2.Name + " - " + city2.Description);
+                            }
+                            writer.WriteLine();
+                        }
+                    }
+                }
+                writer.Close();
+                
+            }
+            catch (Exception ex)
+            {
+                // Fill out error
+            }
         }
 
         private void BtnSearchByName_Click(object sender, EventArgs e)
